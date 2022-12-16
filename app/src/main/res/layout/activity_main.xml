@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:animateLayoutChanges="true">
+
+    <include
+        android:id="@+id/asConfigured"
+        layout="@layout/config_ip"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+    <WebView
+        android:id="@+id/wb_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="69dp">
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/Print"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentBottom="true"
+            android:layout_gravity="bottom|right|fill"
+            android:layout_margin="20dp"
+            android:layout_x="500dp"
+            android:layout_y="800dp"
+            android:background="#00BCD4"
+            android:clickable="true"
+            android:onClick="btPrint"
+            app:srcCompat="@drawable/impresora" />
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </WebView>
+
+    <include
+        android:id="@+id/layoutDisconnect"
+        layout="@layout/not_wifi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</RelativeLayout>

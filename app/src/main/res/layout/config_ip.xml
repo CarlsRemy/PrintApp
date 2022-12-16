@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@color/gray"
+        android:orientation="vertical">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="15dp"
+            android:text="Configuracion"
+            android:textAllCaps="false"
+            android:textColor="@android:color/black"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:text="Ip Del Server"
+            android:textAllCaps="true"
+            android:textColor="@android:color/black"
+            android:textSize="22sp"
+            android:textStyle="bold" />
+
+
+        <FrameLayout
+            android:id="@+id/Server"
+            android:layout_width="308dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="15dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/Ip"
+                android:layout_width="245dp"
+                android:layout_height="45dp"
+
+                android:layout_gravity="left"
+                android:background="#FFFFFF"
+                android:digits="0123456789."
+                android:inputType="number|numberDecimal"
+                android:maxLength="15"
+                android:text=""
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                tools:ignore="RtlCompat" />
+
+            <Spinner
+                android:id="@+id/Port"
+                style="@android:style/Widget.Spinner.DropDown"
+                android:layout_width="55dp"
+                android:layout_height="45dp"
+                android:layout_gravity="right|center_horizontal"
+                android:background="@color/white"
+                android:dropDownWidth="match_parent"
+                android:dropDownHeight="match_parent"
+                android:padding="0dp"
+                android:spinnerMode="dropdown"
+                android:textAlignment="center"
+                android:textColor="#000000"
+                android:textSize="18dp"
+                android:visibility="visible" />
+        </FrameLayout>
+
+        <Button
+            android:id="@+id/button"
+            style="@style/Widget.AppCompat.Button"
+            android:layout_width="147dp"
+            android:layout_height="wrap_content"
+            android:background="#03A9F4"
+            android:onClick="validIp"
+            android:text="Aceptar"
+            android:textColor="#FFFFFF"
+            android:textSize="22sp"
+            app:backgroundTint="#03A9F4" />
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

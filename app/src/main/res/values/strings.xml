@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">Print Example</string>
+    <string name="about_disconnected">Verifique su Coneccion de Internet</string>
+    <string name="disconnected">Sin Internet</string>
+
+    <string name="find_printer">Buscar impresora</string>
+    <string name="check_printer">Por favor verifica que la impresora esté encendida</string>
+    <string name="check_printer_s">Por favor verifica que la impresora %s esté encendida</string>
+    <string name="print">Imprimir</string>
+    <string name="printing_ticket">¡Imprimiendo Ticket!</string>
+    <string name="printer_disconnected">¡Impresora Desconectada!</string>
+    <string name="printer_connecting">Conectando a %s</string>
+    <string name="invoice_details">Detalles de Factura</string>
+    <string name="bluetooth_not_enabled">Bluetooth  está apagado!</string>
+
+    <string-array name="Ports">
+        <item>80</item>
+        <item>81</item>
+        <item>82</item>
+        <item>83</item>
+        <item>84</item>
+        <item>85</item>
+        <item>86</item>
+        <item>87</item>
+        <item>88</item>
+        <item>89</item>
+        <item>90</item>
+    </string-array>
+</resources>
