@@ -23,7 +23,6 @@ El Device Major es como se categoriza dicho dispositivo. **[Lista Device.Major](
 
 ### JavascriptInterface - Kotlin
 <code> 
-
 	private inner class Events {
 		@JavascriptInterface
 		fun Example(){
@@ -82,7 +81,6 @@ La clase responsable de de la validacion es **NetworkConnection**, Esta la utili
 
 ### Ejemplo de Validacion
 <code>
-
 	networkConnection.observe(this, { isConnected ->
 		if (isConnected) {
 			layoutDisconnect.visibility = View.GONE
