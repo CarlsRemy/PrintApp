@@ -5,9 +5,11 @@ import android.bluetooth.BluetoothClass;
 import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothSocket;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Set;
 import java.util.UUID;
 
@@ -56,13 +58,16 @@ public class BluetoothUtils {
             return false;
         }
 
+        int UNCATEGORIZED = BluetoothClass.Device.Major.UNCATEGORIZED;
+        int IMAGING = BluetoothClass.Device.Major.IMAGING;
+
         boolean containsPrintService = btDevice.getBluetoothClass().hasService(BluetoothClass.Service.RENDER);
 
         int type = btDevice.getBluetoothClass().getDeviceClass();
         int majorType = btDevice.getBluetoothClass().getMajorDeviceClass();
 
 
-        return (type == PRINT_BLUETOOTH_MAJOR && containsPrintService) || majorType == BluetoothClass.Device.Major.UNCATEGORIZED;
+        return (type == PRINT_BLUETOOTH_MAJOR && containsPrintService) || (majorType == UNCATEGORIZED || majorType == IMAGING );
     }
 
     public static ArrayList<BluetoothDevice> getPrintersBluetooth() throws NullPointerException {
@@ -79,10 +84,9 @@ public class BluetoothUtils {
 
         if(dispositivosEmparejados.size() > 0) {
             for(BluetoothDevice dispositivo : dispositivosEmparejados) {
-              //  if(BluetoothUtils.isBluetoothPrinter(dispositivo)){
-
+                if(BluetoothUtils.isBluetoothPrinter(dispositivo)){
                     dispositivos.add(dispositivo);
-              //  }
+                }
             }
         }
 

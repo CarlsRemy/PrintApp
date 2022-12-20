@@ -6,6 +6,7 @@ import PrintApp.V3.BluetoothPrinter.BluetoothUtils
 import PrintApp.V3.BluetoothPrinter.InvoiceTicket
 import PrintApp.V3.Clases.PrinterManagmentActivity
 import PrintApp.V3.Dialogs.BluetoothListFragment
+import android.bluetooth.BluetoothClass
 import android.bluetooth.BluetoothDevice
 import android.os.Build
 import android.os.Bundle
@@ -20,7 +21,7 @@ import android.widget.Spinner
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import kotlinx.android.synthetic.main.activity_main.*
-import java.util.ArrayList
+import java.util.*
 
 
 class  MainActivity :  PrinterManagmentActivity(), BluetoothListFragment.OnBluetoothSelectedListener {
@@ -135,7 +136,6 @@ class  MainActivity :  PrinterManagmentActivity(), BluetoothListFragment.OnBluet
             msg.show()
         }
         else{
-
             val prefs = PreferenceManager.getDefaultSharedPreferences(this)
             val editor = prefs.edit()
             editor.putString(key, ipValue)
@@ -143,7 +143,6 @@ class  MainActivity :  PrinterManagmentActivity(), BluetoothListFragment.OnBluet
             editor.apply()
             ipServer = prefs.getString(key, "0").toString()
             PortServer = prefs.getString(key2, "80").toString()
-
 
             asConfigured.visibility = View.GONE;
             layoutDisconnect.visibility = View.GONE
@@ -164,21 +163,16 @@ class  MainActivity :  PrinterManagmentActivity(), BluetoothListFragment.OnBluet
      */
     private fun printInvoice() {
         if (!isPrinterSelected) {
-
             val prefs = PreferenceManager.getDefaultSharedPreferences(this)
             val Address = prefs.getString("printerAddress", "")
             val DevicePaired: ArrayList<BluetoothDevice> = BluetoothUtils.getPrintersBluetooth()
 
-            
             if(!(Address == null || Address.isEmpty()) && DevicePaired.size > 0){
                 val device: BluetoothDevice =  BluetoothUtils.getPrintersBluetoothByAddress(Address)
 
-
                 Toast.makeText(this, getString(R.string.printer_connecting, device.name), Toast.LENGTH_SHORT).show()
-
-               establishConnectionWithPrinter(device)
+                establishConnectionWithPrinter(device)
                 super.onPrinterConnecting(device)
-
             }else {
 
                 /**
